@@ -10,3 +10,14 @@ RUN a2enmod cgi && \
 COPY html/ /var/www/html/
 COPY css/ /var/www/html/css/
 COPY cgi-bin/ /usr/lib/cgi-bin/
+
+COPY apache-config.conf /etc/apache2/conf-enabled/cgi-bin.conf
+
+RUN find /usr/lib/cgi-bin/ -type f -name "*.pl" -exec dos2unix {} \; && \
+    chmod +x /usr/lib/cgi-bin/*.pl
+
+# Exponer el puerto 80
+EXPOSE 80
+
+# Iniciar Apache en primer plano
+CMD ["apache2ctl", "-D", "FOREGROUND"]
