@@ -7,3 +7,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 RUN a2enmod cgi && \
     echo "ServerName localhost" >> /etc/apache2/apache2.conf
+COPY html/ /var/www/html/
+COPY css/ /var/www/html/css/
+COPY cgi-bin/ /usr/lib/cgi-bin/
