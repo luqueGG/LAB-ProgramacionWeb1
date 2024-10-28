@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <link rel="stylesheet" href="/css/estilos.css">  
     <title>Calculadora</title>
 </head>
@@ -10,8 +9,8 @@
     <div class="container">
         <h1>Mi calculadora</h1>
         <form action="/cgi-bin/calculadora.pl" method="post">
-            <label for="expression">Ingrese en el prompt (No es necesario usar parentesis):</label>
-            <input type="text" id="expresion" name="expresion" pattern="^\d+\s*[\+\-\*/]\s*\d+$" required>
+            <label for="expresion">Ingrese en el prompt para calcular (+,-,*,/):</label>
+            <input type="text" id="expresion" name="expresion" pattern="^[\d\+\-\*/\(\)\s]+$" required>
             <button type="submit">Calcular Operacion</button>
         </form>
     </div>

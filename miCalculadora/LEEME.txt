@@ -1,0 +1,5 @@
+##Para contruir el contenedor:
+
+docker build . -t micalc
+docker run -d --name ctmicalc -p 8085:80 micalc
+
